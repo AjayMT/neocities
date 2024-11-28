@@ -1,39 +1,40 @@
 
 let windows = document.getElementsByClassName("window");
-for (var i = windows.length - 1; i >= 0; i--) {
+for (let i = 0; i < windows.length; i++) {
   makeDraggable(windows[i]);
 }
 
 function makeDraggable(elem) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  elem.getElementsByClassName("window_title")[0].onmousedown = dragMouseDown;
+  let cur_x = 0;
+  let cur_y = 0;
+  elem.getElementsByClassName("window_title")[0].onmousedown = mousedown;
 
-  function dragMouseDown(e) {
+  function mousedown(e) {
     e = e || window.event;
     e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
+    cur_x = e.clientX;
+    cur_y = e.clientY;
+    elem.style.zIndex = 10;
+    for (let i = 0; i < windows.length; i++) {
+      if (windows[i] !== elem)
+        windows[i].style.zIndex = 9;
+    }
+    document.onmouseup = mouseup;
+    document.onmousemove = mousemove;
   }
 
-  function elementDrag(e) {
+  function mousemove(e) {
     e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elem.style.top = (elem.offsetTop - pos2) + "px";
-    elem.style.left = (elem.offsetLeft - pos1) + "px";
+    let dx = e.clientX - cur_x;
+    let dy = e.clientY - cur_y;
+    cur_x = e.clientX;
+    cur_y = e.clientY;
+    elem.style.left = (elem.offsetLeft + dx) + "px";
+    elem.style.top = (elem.offsetTop + dy) + "px";
   }
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
+  function mouseup() {
     document.onmouseup = null;
     document.onmousemove = null;
   }
