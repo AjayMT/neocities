@@ -4,20 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The web site of ajaymt</title>
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
   </head>
 
   <body>
     <div id="desktop">
-      <div class="window w200 h200">
+      <div id="menu_bar">
+        <span class="menu_item"><img src="./apple.png" height="17px"></span>
+        <span class="menu_item"><strong>Ajay</strong></span>
+        <span class="menu_item">File</span>
+        <span class="menu_item">Edit</span>
+        <span class="menu_item">View</span>
+        <span class="menu_item">Go</span>
+        <span class="menu_item">Window</span>
+        <span class="menu_item">Help</span>
+      </div>
+
+      <div class="window" style="width: 200px; height: 200px; top: 100px; left: 300px;">
         <div class="window_title">
-          <img src="./window-controls.png" class="window_controls" />
-          Hello
+          <span class="vcenter"><img src="./window-controls.png" class="window_controls " /></span>
+          <span class="vcenter hcenter">Hello</span>
         </div>
         <p>This webpage is under construction. Go to <a href="https://ajaymt.github.io">ajaymt.github.io</a> or <a href="https://1010labs.org">1010labs</a> instead.</p>
       </div>
+
+      <div class="window" style="width: 250px; height: 100px; top: 50px; left: 20px;">
+        <div class="window_title">
+          <span class="vcenter"><img src="./window-controls.png" class="window_controls" /></span>
+          <span class="vcenter hcenter">Drag me!</span>
+        </div>
+        <p>Try clicking and dragging windows.</p>
+      </div>
+
     </div>
 
     <a href="https://neocities.org"><img src="/neocities.png" /></a>
+    <script type="text/javascript" src="./index.js"></script>
   </body>
 </html>

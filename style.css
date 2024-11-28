@@ -8,30 +8,50 @@ body {
   width: 1024px;
   height: 768px;
   background-size: 1024px 768px;
+  border: 1px solid black;
+}
+
+#menu_bar {
+  display: flex;
+  background: linear-gradient(#fff, #dadada);
+  height: 22px;
+}
+
+.menu_item {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .window {
   background-color: #eee;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 9;
 }
 
-.w200 {
-  width: 200px;
+.vcenter {
+  display: flex;
+  align-items: center;
 }
 
-.h200 {
-  height: 200px;
+.hcenter {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .window_controls {
   height: 15px;
-  vertical-align: middle;
+  padding-left: 10px;
 }
 
 .window_title {
-  padding: 2px;
+  display: flex;
   height: 25px;
-  background: linear-gradient(#aaa, #ccc);
-  border: 1px solid #aaa;
+  background: linear-gradient(#d2d2d2, #a6a6a6);
+  border-bottom: 1px solid #505050;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
